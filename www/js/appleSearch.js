@@ -13,6 +13,9 @@ $(document).ready(function(){
 			return;
 		}
 
+		//get the media type
+		var mediaType = $('#media-type').val();
+
 
 		//ajax
 		$.ajax({
@@ -20,7 +23,8 @@ $(document).ready(function(){
 			type:'get',
 			url:'app/apple-search.php',
 			data: {
-			searchQuery: query
+			searchQuery: query,
+			media: mediaType
 			},
 			beforeSend:function(){
 
@@ -60,7 +64,7 @@ $(document).ready(function(){
 
 						break;
 
-						case 'musicVideo':
+						case 'music-video':
 						case 'feature-movie':
 
 							var preview = $('<video controls preload="none" type="video/m4p" src="'+product.previewUrl+'">');

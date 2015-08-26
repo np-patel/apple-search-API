@@ -6,11 +6,14 @@ require '../../config.php';
 
 $searchQuery = urlencode($_GET['searchQuery']);
 
+//get the media type that user choose
+$mediaType = $_GET['media'];
+
 // start a connection using cURL
 $connection = curl_init();
 
 //Prepare option for the connection
-curl_setopt($connection, CURLOPT_URL, 'https://itunes.apple.com/search?term='.$searchQuery);
+curl_setopt($connection, CURLOPT_URL, 'https://itunes.apple.com/search?term='.$searchQuery.'&media='.$mediaType);
 curl_setopt($connection, CURLOPT_RETURNTRANSFER, true);
 
 
